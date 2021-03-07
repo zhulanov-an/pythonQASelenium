@@ -3,23 +3,25 @@ from pages.locators.ProductPageLocators import ProductPageLocators as locator
 
 
 class ProductPage(BasePage):
-    def __init__(self, driver, base_url):
-        self.driver = driver
-        self.url = base_url
-        super(ProductPage, self).__init__(self.driver,
-                                          self.url)
+    def __init__(self, driver, url):
+        super(ProductPage, self).__init__(driver, url)
 
-    def get_text_header_product(self):
+    @property
+    def text_header_product(self):
         return self._get_element_text(locator.HEADER_OF_PRODUCT)
 
-    def get_features_of_product(self):
+    @property
+    def features_of_product(self):
         return self._get_elements(locator.FEATURES_OF_PRODUCT)
 
-    def get_image_of_product(self):
+    @property
+    def image_of_product(self):
         return self._get_element(locator.IMG_PRODUCT)
 
-    def get_price_of_product(self):
+    @property
+    def price_of_product(self):
         return self._get_element(locator.PRICE)
 
-    def get_currency(self):
+    @property
+    def currency(self):
         return self._get_element(locator.CURRENCY)

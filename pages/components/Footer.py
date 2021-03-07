@@ -1,7 +1,6 @@
-from pages.components.Component import Component
+from pages.BasePage import BasePage
 
 
-class Footer(Component):
+class Footer(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
-        self.driver = driver

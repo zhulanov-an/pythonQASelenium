@@ -12,30 +12,29 @@ def account_login_page(browser, base_url):
 
 def test_browser_title_is_account_login(account_login_page):
     """проверка заголовка страницы Account Login в браузере"""
-    assert "Account Login" in account_login_page.get_title()
+    assert "Account Login" in account_login_page.title
 
 
 def test_header_of_block_new_customer(account_login_page):
     """проверка наличия заголовка в блоке new customer"""
-    assert account_login_page.get_text_header_of_block_new_customer() == "New Customer"
+    assert account_login_page.text_header_of_block_new_customer == "New Customer"
 
 
 def test_header_of_block_returning_customer(account_login_page):
     """проверка наличия заголовка в блоке Returning Customer"""
-    assert account_login_page.get_text_header_of_block_returned_customer() == "Returning Customer"
+    assert account_login_page.text_header_of_block_returned_customer == "Returning Customer"
 
 
 def test_button_continue_in_block_new_customer(account_login_page):
-    button = account_login_page.get_button_continue()
-    assert button.text == "Continue"
-    assert button.get_attribute("href").endswith("register")
+    assert account_login_page.button_continue.text == "Continue"
+    assert account_login_page.button_continue.get_attribute("href").endswith("register")
 
 
 def test_inputs_in_block_returning_customer(account_login_page):
     """проверка полей имени и пароля клиента и кнопки авторизации"""
-    input_email = account_login_page.get_field_username_of_returned_customer()
-    input_password = account_login_page.get_field_password_of_returned_customer()
-    button_login = account_login_page.get_button_login_of_returned_customer()
+    input_email = account_login_page.field_username_of_returned_customer
+    input_password = account_login_page.field_password_of_returned_customer
+    button_login = account_login_page.button_login_of_returned_customer
 
     assert input_email.get_attribute("placeholder") == "E-Mail Address"
     assert input_password.get_attribute("placeholder") == "Password"

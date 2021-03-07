@@ -9,25 +9,31 @@ class AccountLoginPage(BasePage):
         super(AccountLoginPage, self).__init__(self.driver,
                                                self.url)
 
-    def get_button_continue(self):
+    @property
+    def button_continue(self):
         return self._get_element(locator.BUTTON_NEW_CUSTOMER_CONTINUE)
 
-    def get_field_username_of_returned_customer(self):
+    @property
+    def field_username_of_returned_customer(self):
         return self._get_element(locator.INPUT_EMAIL)
 
-    def get_field_password_of_returned_customer(self):
+    @property
+    def field_password_of_returned_customer(self):
         return self._get_element(locator.INPUT_PASSWORD)
 
-    def get_button_login_of_returned_customer(self):
+    @property
+    def button_login_of_returned_customer(self):
         return self._get_element(locator.BUTTON_LOGIN)
 
-    def get_text_header_of_block_new_customer(self):
+    @property
+    def text_header_of_block_new_customer(self):
         return self._get_element_text(locator.HEADER_NEW_CUSTOMER)
 
-    def get_text_header_of_block_returned_customer(self):
+    @property
+    def text_header_of_block_returned_customer(self):
         return self._get_element_text(locator.HEADER_RETURNING_CUSTOMER)
 
     def login_returned_customer(self, name, password):
-        self.get_field_username_of_returned_customer().send_keys(name)
-        self.get_field_password_of_returned_customer().send_keys(password)
-        self.get_button_login_of_returned_customer().click()
+        self.field_username_of_returned_customer.send_keys(name)
+        self.field_password_of_returned_customer.send_keys(password)
+        self.button_login_of_returned_customer.click()

@@ -130,4 +130,9 @@ dmypy.json
 
 #idea files
 .idea
+
+#screenshots
 /tests/*.png
+
+#allure reports
+/allure_results/
